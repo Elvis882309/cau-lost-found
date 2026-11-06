@@ -1,0 +1,29 @@
+{
+  "name": "cau-lost-found",
+  "version": "1.0.0",
+  "description": "中国农业大学失物招领平台 —— 可联网使用、可一键部署、可开源的校园失物招领 Web 应用",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node seed.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "中国农业大学",
+    "失物招领",
+    "lost-and-found",
+    "campus",
+    "CAU"
+  ],
+  "author": "CAU 开源社区",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2",
+    "multer": "^2.0.0"
+  }
+}

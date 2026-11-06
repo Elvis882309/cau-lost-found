@@ -1,0 +1,20 @@
+# Render 一键部署配置（https://render.com）
+# 说明：免费版 Web Service 不支持挂载磁盘，实例休眠后 data/ 与 uploads/ 会重置。
+# 如需持久化，请升级为付费版并启用下方 disk，或改用自有服务器部署。
+services:
+  - type: web
+    name: cau-lost-found
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_KEY
+        generateValue: true
+      - key: PORT
+        value: 3000
+    # 持久化磁盘（需付费版）
+    # disk:
+    #   name: cau-data
+    #   mountPath: /app/data
+    #   sizeGB: 1

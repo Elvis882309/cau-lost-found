@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>CAU 失物招领 · 中国农业大学</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="logo">🌾</span>
+      <div>
+        <h1>中国农业大学 · 失物招领</h1>
+        <p class="sub">东校区 / 西校区 校园失物与招领互助平台</p>
+      </div>
+    </div>
+    <button id="postBtn" class="primary-btn">＋ 发布</button>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-type="found">📥 招领（捡到）</button>
+    <button class="tab" data-type="lost">🔍 失物（丢失）</button>
+  </nav>
+
+  <section class="filters">
+    <input id="search" type="search" placeholder="搜索物品、地点、描述…" />
+    <div class="filter-row">
+      <select id="fCategory">
+        <option value="">全部分类</option>
+        <option>一卡通/校园卡</option>
+        <option>钥匙</option>
+        <option>书籍文具</option>
+        <option>电子数码</option>
+        <option>衣物</option>
+        <option>伞具</option>
+        <option>证件</option>
+        <option>其他</option>
+      </select>
+      <select id="fCampus">
+        <option value="">全部校区</option>
+        <option>东校区</option>
+        <option>西校区</option>
+        <option>不限</option>
+      </select>
+    </div>
+  </section>
+
+  <main id="list" class="list"></main>
+
+  <div id="empty" class="empty hidden">这里还没有内容，点击右上角「发布」帮助同学吧 🤝</div>
+
+  <!-- 发布弹层 -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>发布信息</h2>
+        <button id="closeModal" class="icon-btn">✕</button>
+      </div>
+      <form id="postForm" enctype="multipart/form-data">
+        <div class="seg">
+          <label><input type="radio" name="type" value="found" checked /> 我捡到了（招领）</label>
+          <label><input type="radio" name="type" value="lost" /> 我丢失了（失物）</label>
+        </div>
+        <label>标题 *<input name="title" required maxlength="40" placeholder="如：捡到一张一卡通" /></label>
+        <div class="two">
+          <label>分类 *
+            <select name="category" required>
+              <option value="">请选择</option>
+              <option>一卡通/校园卡</option>
+              <option>钥匙</option>
+              <option>书籍文具</option>
+              <option>电子数码</option>
+              <option>衣物</option>
+              <option>伞具</option>
+              <option>证件</option>
+              <option>其他</option>
+            </select>
+          </label>
+          <label>校区 *
+            <select name="campus" required>
+              <option value="">请选择</option>
+              <option>东校区</option>
+              <option>西校区</option>
+              <option>不限</option>
+            </select>
+          </label>
+        </div>
+        <label>具体地点<input name="location" maxlength="40" placeholder="如：图书馆三楼 / 一食堂" /></label>
+        <label>描述<textarea name="description" rows="3" maxlength="300" placeholder="物品特征、时间等"></textarea></label>
+        <div class="two">
+          <label>联系方式 *<input name="contact" required maxlength="40" placeholder="微信 / QQ / 电话 / 邮箱" /></label>
+          <label>方式类型
+            <select name="contact_type">
+              <option>微信</option><option>QQ</option><option>电话</option><option>邮箱</option>
+            </select>
+          </label>
+        </div>
+        <label>图片（选填，≤3MB）<input type="file" name="image" accept="image/*" /></label>
+        <button type="submit" class="primary-btn full">提交发布</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <footer class="app-footer">
+    <span>🌱 开源项目 · 仅用于校内互助 · 数据由同学自发维护</span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
